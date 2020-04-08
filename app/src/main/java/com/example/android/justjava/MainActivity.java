@@ -3,7 +3,10 @@ package com.example.android.justjava;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import java.text.NumberFormat;
@@ -29,16 +32,26 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-       displayMassage(createOrderSummary());
+        CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
+       boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
+       //Log.v( "MainActivity" , "has " + hasWhippedCream);
+        if(hasWhippedCream){
+            displayMassage(" Whipped Cream \n" + createOrderSummary());
+        } else
+            displayMassage(createOrderSummary());
     }
+
+
 
     /**
      * This method creates the summary of the order
      * @return string summary
      */
     private String createOrderSummary(){
-        return "Name:" + getName() + "\n Quantity: " + quantity +
-                "\nPrice: $" + calculatePrice() +
+        return " Name:" +
+                getName() +
+                "\n Quantity: " + quantity +
+                "\n Price: $" + calculatePrice() +
                 "\n Thank  you!";
     }
 
@@ -71,12 +84,6 @@ public class MainActivity extends AppCompatActivity {
         orderSummaryTextView.setText(message);
 
     }
-
-    /**
-     * read from the input
-     *
-     */
-
 
 
     /**
