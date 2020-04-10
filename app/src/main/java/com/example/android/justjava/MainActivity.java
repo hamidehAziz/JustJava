@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 public class MainActivity extends AppCompatActivity {
 
-    int quantity = 98;
+    int quantity = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         boolean hasChocolate = chocolateCheckBox.isChecked();
 
         // Calculate the price
-        int price = calculatePrice();
+        int price = calculatePrice(hasChocolate,hasWhippedCream);
 
         // Display the order summary on the screen
         String message = createOrderSummary(price, hasWhippedCream, hasChocolate);
@@ -95,29 +95,21 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Calculates the price of the order.
-     *
+     * @param withChocolate is whether or not the user wants chocolate
+     * @param withWhippedCream is whether or not the user wants whipped cream
      * @return total price
      */
-    private int calculatePrice() {
-        int price = 0;
-        price =  quantity * 5;
+    private int calculatePrice(boolean withChocolate, boolean withWhippedCream) {
+        int basePrice = 5;
 
-//        // Figure out if the user wants whipped cream topping
-//        CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
-//        boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
-//
-//        // Figure out if the user wants chocolate topping
-//        CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_checkbox);
-//        boolean hasChocolate = chocolateCheckBox.isChecked();
-//
-//        if (hasWhippedCream){
-//            price =  (quantity * (5+1));}
-//        else if (hasChocolate){
-//            price =  (quantity * (5+2));}
-//        else if (hasChocolate && hasWhippedCream){
-//            price =  (quantity * (5+2+1));}
+        if(withChocolate){
+            basePrice = basePrice + 2;
+        }
 
-        return price;
+        if(withWhippedCream){
+            basePrice = basePrice + 1;
+        }
+        return  quantity * basePrice;
     }
 
 
@@ -143,11 +135,7 @@ public class MainActivity extends AppCompatActivity {
      * This method displays the given quantity value on the screen.
      */
     private void displayQuantity(int numberOfCoffees) {
-        TextView quantityTextView = (TextView) findViewById(
-                R.id.quantity_text_view);
+        TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
         quantityTextView.setText("" + numberOfCoffees);
     }
-
-
-
 }
