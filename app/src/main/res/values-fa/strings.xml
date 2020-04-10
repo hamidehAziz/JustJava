@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Title for the application. [CHAR LIMIT=12] -->
+    <string name="app_name">فقط جاوا</string>
+
+    <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=20] -->
+    <string name="name">نام و نام خانوادگی</string>
+    <string name="toast_for_more_than_100">بیش از 100 عدد قهوه نمی توانید سفارش دهید </string>
+    <string name="toast_for_less_than_0">حداقل یک قهوه باید سفارش دهید! </string>
+    <string name="mail_subject">سفارش جاست جاوا برای <xliff:g example="Amy" id="name"></xliff:g></string>
+    <string name="add_whipped_cream">  خامه اضافه شد؟<xliff:g example="true" id="addWhippedCream"></xliff:g></string>
+    <string name="add_chocolate">  شکلات اضافه شد؟<xliff:g example="true" id="addChocolate"></xliff:g></string>
+    <string name="total">جمع کل <xliff:g example="$10" id="price"></xliff:g></string>
+    <string name="thank_you">"با تشکر "</string>
+    <string name="topping">رویه</string>
+    <string name="whipped_cream">"خامه "</string>
+    <string name="chocolate">"شکلات "</string>
+    <string name="quantity">تعداد</string>
+    <string name="order">ثبت سفارش</string>
+    <string name="name_summary"> <xliff:g example="Amy" id="name"></xliff:g></string>
+</resources>
+
